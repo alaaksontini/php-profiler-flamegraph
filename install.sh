@@ -23,6 +23,6 @@ git clone https://github.com/brendangregg/FlameGraph.git
 ln -s $WD/xhprof-flamegraph/xhprof-flamegraph /usr/bin/xhp2flamegraph
 ln -s $WD/FlameGraph/flamegraph.pl /usr/bin/flamegraph
 
-
+mkdir /tmp/profiler
 mkdir /tmp/profiler/samples
 mkdir /tmp/profiler/svg
