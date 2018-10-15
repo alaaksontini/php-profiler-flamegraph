@@ -5,12 +5,23 @@ WD=$(pwd)
 PARSER_DIR="${WD}/xhprof-flamegraph"
 FLAMEGRAPH_DIR="${WD}/FlameGraph"
 
+PARSER_SL=/usr/bin/xhp2flamegraph
+FLAMEGRAPH_SL=/usr/bin/flamegraph
+
 if [ -d "$PARSER_DIR" ]; then
   rm -rf $PARSER_DIR
 fi
 
 if [ -d "$FLAMEGRAPH_DIR" ]; then
   rm -rf $FLAMEGRAPH_DIR
+fi
+
+if [ -d "$PARSER_SL" ]; then
+  rm $FLAMEGRAPH_SL
+fi
+
+if [ -d "$FLAMEGRAPH_SL" ]; then
+  rm $FLAMEGRAPH_SL
 fi
 
 git clone https://github.com/takahashi-yugo/xhprof-flamegraph.git
