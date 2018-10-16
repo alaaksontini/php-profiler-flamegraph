@@ -18,4 +18,6 @@ if [ -z "$1" ]; then
     exit 1
 fi
 
-xhp2flamegraph -f $FILE | flamegraph > $SVG_PATH/web/images/flamegraph.svg
+#xhp2flamegraph -f $FILE | flamegraph > $SVG_PATH/web/images/flamegraph.svg
+
+xhp2flamegraph -f $FILE > $SVG_PATH/web/images/dump.log
