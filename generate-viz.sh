@@ -15,7 +15,7 @@ fi
 if [ -z "$1" ]; then
     print "ERROR: No input file provided.\n"
     print "USAGE: generate-viz <file/path>\n"
-    exhit 1
+    exit 1
 fi
 
 xhp2flamegraph -f $FILE | flamegraph > $SVG_PATH/web/images/flamegraph.svg
