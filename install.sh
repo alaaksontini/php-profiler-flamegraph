@@ -16,11 +16,11 @@ if [ -d "$FLAMEGRAPH_DIR" ]; then
   rm -rf $FLAMEGRAPH_DIR
 fi
 
-if [ -d "$PARSER_SL" ]; then
+if [ -L "$PARSER_SL" ]; then
   rm $FLAMEGRAPH_SL
 fi
 
-if [ -d "$FLAMEGRAPH_SL" ]; then
+if [ -L "$FLAMEGRAPH_SL" ]; then
   rm $FLAMEGRAPH_SL
 fi
 
@@ -33,7 +33,3 @@ git clone https://github.com/brendangregg/FlameGraph.git
 
 ln -s $WD/xhprof-flamegraph/xhprof-flamegraph /usr/bin/xhp2flamegraph
 ln -s $WD/FlameGraph/flamegraph.pl /usr/bin/flamegraph
-
-mkdir /tmp/profiler
-mkdir /tmp/profiler/samples
-mkdir /tmp/profiler/svg

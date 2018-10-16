@@ -2,11 +2,20 @@
 
 INPUT=$1
 
-if [ -z "$1" ]; then
-    print "ERROR: No input file provided.\n"
-    print "USAGE: generate-viz <file/path>"
+SVG_PATH=$ELITRACK_WEB_PATH
+
+
+if [ -z "$SVG_PATH" ]; then
+    print "ERROR: Please configure Elitrack Core root path e.g. [/var/www/html] .\n"
+    print "\tDid you set ELITRACK_WEB_PATH env variable?.\n"
+    exit 1
 fi
 
-DATE_PREFIX=$(date +"%Y%m%d_%H%M%S")
 
-xhp2flamegraph -f $FILE | flamegraph > /tmp/profiler/svg/"$DATE_PREFIX"_GRAPH.svg
+if [ -z "$1" ]; then
+    print "ERROR: No input file provided.\n"
+    print "USAGE: generate-viz <file/path>\n"
+    exhit 1
+fi
+
+xhp2flamegraph -f $FILE | flamegraph > $SVG_PATH/web/images/flamegraph.svg
