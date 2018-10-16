@@ -6,8 +6,8 @@ SVG_PATH=$ELITRACK_WEB_PATH
 
 
 if [ -z "$SVG_PATH" ]; then
-    print "ERROR: Please configure Elitrack Core root path e.g. [/var/www/html] .\n"
-    print "\tDid you set ELITRACK_WEB_PATH env variable?.\n"
+    print "ERROR : Please configure Elitrack Core root path e.g. [/var/www/html] .\n"
+    print "NOTICE: Did you set ELITRACK_WEB_PATH env variable?.\n"
     exit 1
 fi
 
