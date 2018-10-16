@@ -17,7 +17,7 @@ if [ -d "$FLAMEGRAPH_DIR" ]; then
 fi
 
 if [ -L "$PARSER_SL" ]; then
-  rm $FLAMEGRAPH_SL
+  rm $PARSER_SL
 fi
 
 if [ -L "$FLAMEGRAPH_SL" ]; then
