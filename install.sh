@@ -28,8 +28,13 @@ git clone https://github.com/takahashi-yugo/xhprof-flamegraph.git
 
 git clone https://github.com/brendangregg/FlameGraph.git
 
+cd xhprof-flamegraph
+composer install
+
+cd ..
 
 # Create symplinks to /usr/bin
 
 ln -s $WD/xhprof-flamegraph/xhprof-flamegraph /usr/bin/xhp2flamegraph
 ln -s $WD/FlameGraph/flamegraph.pl /usr/bin/flamegraph
+ln -s $WD/generate-viz.sh /usr/bin/lightflame
