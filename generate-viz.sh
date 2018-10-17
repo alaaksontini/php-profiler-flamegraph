@@ -11,8 +11,8 @@ if [ -z "$INPUT" ]; then
     exit 1
 fi
 
-if [ -f "$INPUT" ]; then
-    print "ERROR: file does not exist.\n"
+if [ ! -f "$INPUT" ]; then
+    print "ERROR: input file does not exist.\n"
     exit 1
 fi
 

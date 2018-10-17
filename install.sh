@@ -8,12 +8,16 @@ FLAMEGRAPH_DIR="${WD}/FlameGraph"
 PARSER_SL=/usr/bin/xhp2flamegraph
 FLAMEGRAPH_SL=/usr/bin/flamegraph
 
-if [ -d "$PARSER_DIR" ]; then
-  rm -rf $PARSER_DIR
+if [ ! -d "$PARSER_DIR" ]; then
+  git clone https://github.com/takahashi-yugo/xhprof-flamegraph.git
+else
+  echo -e "Skipping the cloning of xhprof-flamegraph, directory exists"
 fi
 
-if [ -d "$FLAMEGRAPH_DIR" ]; then
-  rm -rf $FLAMEGRAPH_DIR
+if [ ! -d "$FLAMEGRAPH_DIR" ]; then
+  git clone https://github.com/brendangregg/FlameGraph.git
+else
+  echo -e "Skipping the cloning of FlameGraph, directory exists"
 fi
 
 if [ -L "$PARSER_SL" ]; then
@@ -24,16 +28,12 @@ if [ -L "$FLAMEGRAPH_SL" ]; then
   rm $FLAMEGRAPH_SL
 fi
 
-git clone https://github.com/takahashi-yugo/xhprof-flamegraph.git
-
-git clone https://github.com/brendangregg/FlameGraph.git
-
 cd xhprof-flamegraph
 composer install
 
 cd ..
 
-# Create symplinks to /usr/bin
+# Create symlinks to /usr/bin
 
 ln -s $WD/xhprof-flamegraph/xhprof-flamegraph /usr/bin/xhp2flamegraph
 ln -s $WD/FlameGraph/flamegraph.pl /usr/bin/flamegraph
